@@ -1,0 +1,215 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+body.body {
+    background: #f4f4f4;
+}
+.fancy-forms .tab-content {
+    background: #fff;
+    color: #000000;
+    padding: 10px;
+   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.03);
+}
+.fancy-forms .nav-tabs .nav-item{
+    width: 50%;
+    text-align: center;
+}
+
+.fancy-forms .nav-tabs .nav-link {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: flex;
+    align-items: center;
+    height: 68px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.03);
+    border-color: #fff;
+    color: #e47a4b;
+    background-color: #ffffff;
+    justify-content: center;
+}
+.fancy-forms .nav-tabs .nav-link.active{
+    color: #ffffff;
+    border: 1px solid #e47a4b;
+    background-color: #e47a4b;
+}
+.fade:not(.show) {
+    opacity:1;
+}
+
+ .fancy-forms .nav-tabs .nav-link:hover{
+    border-color: #fff;
+ }
+
+ .fancy-forms .nav-tabs .nav-link.active:hover{
+    border-color: #e47a4b;
+ }
+
+.col-md-10.offset-md-1.mt-5.fancy-forms {
+	margin: 30px auto !important;
+}
+ .fancyformcontainer {
+    border-radius: 0;
+    background: #e6c3b41f;
+    padding: 0.5rem 3rem !important;
+    margin: 1rem !important;
+    margin-top: 30px;
+}
+.formsubmitbtn {
+    padding: 8px 40px;
+    background: #e47a4b;
+    color: white;
+    margin-bottom: 1.5rem !important;
+    margin-top: 20px;
+}
+ .formsubmitbtn:hover,.formsubmitbtn:focus{
+    color: #fff;
+ }
+ .headings {
+    max-width: 600px;
+    color: #000000;
+    margin: 0px auto;
+    margin-bottom: 28px;
+    margin-top: 40px;
+    font-weight: bold;
+}
+form.form-style p {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+.raido-row {
+    flex-wrap: wrap;
+    display: flex;
+}
+.raido-row {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    display: flex;
+
+}
+.form-style input[type=checkbox], input[type=radio] {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+}
+label {
+    margin-bottom: 0;
+}
+.row-col {
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+form.form-style p {
+    margin-bottom: 0px;
+}
+span.small-text {
+    font-weight: 300;
+    display: inline-block;
+    width: 100%;
+    font-style: italic;
+    font-size: 14px;
+}
+p.resulte {
+    display: block;
+    width: 100%;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+}
+.input_field{
+    width: 100%;
+    display: block;
+}
+.input_field input{
+    width: 50% !important;
+    padding: 5px 10px;
+}
+.text_row{
+    padding-top: 10px;
+}
+.text_row input{
+    padding: 5px 10px;
+}
+p.resulte {
+    font-size: 24px !important;
+}
+.input_field {
+    padding: 5px 12px;
+    margin-left: 8px;
+}
+.last-q p {
+    font-size: 30px;
+}
+.form-group.mt-4.last-q p {
+    font-size: 26px;
+}
+.form-group.mt-4.last-q label {
+    font-size: 18px !important;
+}
+.q-hidden {
+    display: none;
+}
+.d-none{
+    display: none;
+}
+h1.heading-support {
+    padding-top: 40px;
+    margin: 0px auto;
+    text-transform: uppercase;
+    text-align: center;
+    color: #e47a4b;
+    margin-bottom: 20px;
+}
+.support-forms h2 {
+    font-size: 20px;
+}
+.support-forms h3 {
+    font-size: 28px;
+    padding-top: 40px;
+}
+.support-forms a {
+    color: #e47a4b;
+}
+a.support-link {
+    text-align: center;
+    margin: 0px auto;
+    text-decoration: underline;
+    display: block;
+    color: #e47a4b;
+    padding: 16px 22px 2px;
+    font-size: 18px;
+}
+@media only screen and (max-width: 767px) {
+    .support-forms h3 {
+        font-size: 24px;
+        padding-top: 17px;
+    }
+    h1.heading-support {
+        padding-top: 0px;
+    }
+    .fancy-forms .nav-tabs .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    .fancy-forms .nav-tabs .nav-link {
+        font-size: 14px;
+    }
+    .headings {
+        max-width: 600px;
+        font-size: 20px;
+    }
+    .fancyformcontainer {
+        padding: 0.5rem 1rem !important;
+    }
+    form.form-style p {
+        font-size: 18px;
+    }
+    
+    
+  }

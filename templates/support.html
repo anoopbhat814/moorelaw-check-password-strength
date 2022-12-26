@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <section>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-10 offset-md-1 mt-5 support-forms ">
+                  <h1 class="heading-support">Support</h1>
+                  <h2>You can use this website to either calculate how long a passphrase will last until cracked, or how many words your passphrase needs to be to last a certain number of years.</h2>
+                  <h3>Why is this calculator better than others?</h3>
+                  <p>Other password calculators require you to input your password, which is entirely unnecessary. All
+                     we need to know is how many words is your passphrase.</p>
+                  <p>In addition, our calculator can take into account Moore's Law, which states that a computer's
+                     processing speed doubles every two years. No other password strength calculators do this, so
+                     other websites give the impression your password is much more secure than it is.</p>
+                  <p>For example, a passphrase of 6 words with an attacker guessing 1 trillion guesses per second
+                     without Moore's Law, would last 3,388 years! But once Moore's Law is taken into account, the
+                     passphrase only lasts 20 years! That is a huge difference. And all other password strength
+                     calculators out there are vastly misleading.</p>
+                  <h3>What is a passphrase?</h3>
+                  <p>A passphrase is a password made with random words instead of random characters.</p>
+                  <h3>What makes a passphrase better than a password?</h3>
+                  <p>A passphrase is easier to remember than a similarly strong passphrase. For example, a four word
+                     passphrase is easy to remember and offers about 51.7 bits of strength. For a similar strength
+                     password, you would need an 11 character all lower case or upper case password, or a 9
+                     character mixed lower and upper case password, or an 8 character upper case, lower case,
+                     numbers, and special character password.</p>
+                  <h3>For example, which is easier to remember?</h3>
+                  <p>ndqnyrlezjg or NDQNYRLEZJG</p>
+                  <p>vUFGihtgc</p>
+                  <p>Ca]-l~m3</p>
+                  <p>Definitely the passphrase!</p>
+                  <h3>What about an alphanumeric password? (lower case, upper case, and numbers)?</h3>
+                  <p>A nine character alphanumeric password would be slightly stronger than a four word passphrase,
+                     and an eight character password would be weaker, so I didn't include it in the comparison (you
+                     can't have half a letter!). But even if we were to go with the weaker option, which is easier to
+                     remember?</p>
+                  <p>Fencing Sequence Trekker Walk</p>
+                  <p>h0cE639</p>
+                  <p>Definitley still the passphrase!</p>
+                  <p>For more information on passphrases, see this comic by xkcd: <a href="https://xkcd.com/936/"  target="_blank" >https://xkcd.com/936/</a></p>
+                  <h3>How do I generate a random passphrase?</h3>
+                  <p>You can use an open source passphrase generator, such as the one that comes with the password manager software KeePassXC, or you can use the diceware method that is described here: <a href="https://www.eff.org/dice"  target="_blank" >https://www.eff.org/dice</a></p>
+                  <h3>Does it matter if I capitalize the first letter, use a space, or do anything else?</h3>
+                  <p>No, keep it simple. Do one thing and stick with it, if that's not using spaces, or using spaces, or all
+                     lower case, or all upper case, etc. The strength comes from having 7,776 words in the wordlist, so
+                     there are 7,776^x possible combinations, with x=the number of words you choose to use.</p>
+                  <h3>What are password bits?:</h3>
+                  <p>Password/passphrase strength is calculated in bits. For example, 10 bits is very weak, and means
+                     there are 2^10 possibilities before your password is cracked. 50 bits is mediumly strong, and
+                     means there are 2^50 possibilites.</p>
+                  <p>A 10 character password containing lower case, upper case, numbers, and special characters
+                     contains 95^10 possible combinations. (26 lower case, 26 upper case, 10 numbers, 33 special
+                     characters). 95^10 = 59,873,693,923,837,890,625 (roughly 59.9 million trillion) password
+                     combinations, which is roughly equal to 2^65.7, so the password has 65.7 bits of strength.</p>
+                  <p>When passwords are being bruteforced, every combination is tested until the password is found. 
+                     There is a 50% chance that the password will be found once 50% of all combinations are tested (it
+                     is extremely unlikely all combinations will need to be tested and that your password will be the last
+                     one tested)</p>
+                  <p>So this calculator subtracts one bit when testing your password strength (and adds one bit when
+                     telling you how strong your password needs to be to last x years).</p>
+                  <p>This is another common mistake of other password strength calculators, and is also what sets us
+                     apart. Other websites will make you think your password lasts twice as long as it actually does, or
+                     generate you a password requirement that is half as strong as you want it to be.</p>
+                  <p>For example, if your passphrase is 4 words, it is 51.7 bits of strength per the example above. Our
+                     calculator tests how long until 2^50.7 combinations can be tested, as 50% of possible
+                     combinations are tested at that point. Other calculators will tell you how long until 2^51.7
+                     combinations can be tested, making you think your password is twice as strong as it actually is.</p>
+                     <p>If you want a password that lasts 100 years, we give you a passphrase that is one bit stronger than
+                        necessary, otherwise, your password has a 50% chance of being brute forced within 50 years
+                        instead of 100. Other calculators will spit out password requirements that will only give you half
+                        the strength you requested.</p>
+                        <h3>How many bits should my passphrase be?</h3>
+                        <p>This depends on your needs. It is better to decide how long you'd like your passphrase to last
+                           under a brute force attack, and go from there.</p>
+                     <p>Everyone's needs are different, and passphrase strength requirements for a computer's encryption
+                        is very different from an iPhone. But for a rough bit strength guide for a computer, you can see
+                        below:</p>
+                     <p>Anything 40 bits or under (3 word passphrase) is considered weak and would only keep out
+                        unskilled attackers such as a random person trying to guess your password.</p>
+                     <p>Around 50 bits (4 words), you have a mediumly secure password, not weak, not strong</p>
+                     <p>Around 65 bits (5 words), you have a moderately secure password, depending on your needs it
+                        may be considered a highly secure password</p>
+                     <p>Around 77 bits (6 words) you have a highly secured password, most likely even from state actors</p>
+                     <p>Around 90 bits (7 words) you have an extremely secure password, most likely no one ever would
+                        be able to brute force it.</p>
+                     <p>Around 103 bits (8 words) are you Edward Snowden or reporting on a massive government
+                        scandal? You probably don't need this.</p>
+                     <p>Remember, your password is only as secure as it is usable! If your password is too inconvenient
+                        to type in, or you never lock your computer/phone because you are worried you won't remember it,
+                        then it doesn't matter how secure your password is!</p>
+                     <p>Remember, every additional bit means your password is twice as strong! 2 additional bits means
+                           4x as strong, 3 additional bits means 8x, it is exponential!</p>
+                     <h3>What is Moore's Law?</h3> 
+                     <p>Moore's Law states that a computer's processing speed doubles every two years.</p>     
+                     <p>So when Edward Snowden stated that a state actor can brute force passwords at a speed of 1
+                        trillion guesses per second back in 2013, that would now be 32 trillion guesses per second.</p>
+                     <h3>Do passwords need to be randomly generated?</h3>
+                     <p>Yes! Technically, the password: P@ssw0rD has 52.5 bits of strength, but in reality would take
+                        under a minute to crack, since it is such a common password. All password calculators assume
+                        your password has been randomly generated. All passwords should be randomly generated! 
+                        Being "smart" and picking a random sentence from your favorite book isn't secure when attacking
+                        computers are guessing trillions of guesses per second.</p>
+                     <p>You should always assume your attacker knows how you generated your password, and if it's still
+                        strong, then you know for sure it's strong.</p>
+                     <p>For example, it doesn't matter if your attacker knows you created a randomly generated diceware
+                        password from EFF's word list that is 5 words in length, it is still secure.</p>
+                     <p>If your attacker knows you love Harry Potter and picked a random sentence, they can just feed
+                        Harry Potter into the attacking computer.</p>
+                     <h3>I can randomly generate my password just by being "random", right?</h3>
+                     <p>No! You will think you are being random, but you are not. If you want a randomly generated
+                        password (instead of a passphrase), which I don't recommend, you need to use open source
+                        password management software like KeePassXC that comes with a password generator. Do not
+                        use an online one! Besides risking that they are storing your password, you don't know that the
+                        code is up to par, and the randomness could be extremely poor. Do not just pound on the keypad! 
+                        It will be a lot less random than you think it is, which will reduce it's strength while being just as
+                        hard to remember.</p>
+                     <p>If you want to generate a random passphrase--which I recommend--you can use dice, or software
+                        like KeePassXC which offer password and passphrase generation.</p>
+                     <h3>What are the options you provide under the Moore's Law section?</h3>
+                     <p>For example, if you select that your attacker has the ability to brute force 1 trillion guesses per
+                        second, and you've selected yes under Moore's Law, in two years your attacker will be guessing 2
+                        trillion guesses per second.</p>
+                     <p>The time frame options allow you to select how often your attacker's computer speed increases. 
+                        The default is two years, which means for a full two years, your attacker will be guessing 1 trillion
+                        guesses per second, and then jump up to 2 trillion for the next two years.</p>
+                     <p>If you select 1 year, your attacker will guess 1 trillion guesses per second for a year, than about
+                        41% faster (1.41 trillion guesses per second) for the next year, then a 41% increase again, to 2
+                        trillion for the year after.</p>
+                     <p>If you select 6 months, your attacker's guessing speed will increase roughly 19% every six months.</p>
+                     <p>No matter which option you select, your attacker's guessing speed will have doubled every 2 years
+                        in line with Moore's Law, however, the more frequently your attacker's speed increases, the
+                        attacker will have more guesses overall in the 2 year period before the speed has doubled.</p>
+                     <p>Why are there not options for 1 month time periods, or even 1 day?</p>
+                     <p>Because research and production is needed for making new computer chips that can have faster
+                        processing speeds. Which is why the default is the speed jumps up to double after two years. 
+                        Increasing 41% every year instead, assumes you have a highly motivated attacker that is able to
+                        produce or buy new chips every year. Having new chips every 6 months is already pretty
+                        unrealistic, and anything less than that is just impossible.</p>
+                     <h3>What do you mean by has Moore's Law been in affect since the estimate?</h3>
+                  <p>Under the guesses/second section, if you choose one of the pre-inputted estimates from Edward
+                     Snowden, Matthew Green, or the NYPD, and select yes, then it will take into account how long ago
+                     the estimate was, and what the speed would be now based on Moore's Law.</p>
+                  <p>For example, if you select Edward Snowden's estimate of 1 trillion guesses per second and that
+                     Moore's Law has been in affect, your attacker will start off with 32 trillion guesses per second,
+                     since it has been 10 years (which is 5 times the speed has doubled). The 32 trillion guesses per
+                     second will double every two years.</p>
+                  <p>You can always choose that Moore's Law is in affect for the password calculator moving forward,
+                     but select no for "has Moore's Law been in affect since the estimate was made". This will keep
+                     your attacker's starting speed at 1 trillion guesses/second, but assume doubling from now.</p>
+                  <p>Or, you can hit no Moore's Law at all, and your attacker's speed will start and stay at 1 trillion
+                     guesses per second.</p>
+                  <h3>Why is there no "has Moore's Law been in affect since the estimate" for the supercomputer, bitcoin
+                  network, or custom option?</h3>
+                  <p>Because all those options are already current speeds. The other options are estimates from years
+                     ago, and should be faster now if they fall in line with Moore's Law. You can still select that the
+                     calculator won't take into account Moore's Law, so those speeds won't double every two years.</p>
+                  <h3>Is Moore's Law a proven fact?</h3>
+                  <p>No, Moore's Law is theory that has proven to be roughly true since it's inception in the 70's,
+                     however, this does not mean it will continue in perpetuity. Some computer experts have declared
+                     Moore's Law dead or soon to be dead, while others have said it is very much still in affect. By the
+                     nature of Moore's Law, at some point the speeds would be impossible if we are still using silicon
+                     based chips, due to physical constraints. Either Moore's Law will eventually die, or we will need to
+                     discover an alternative for silicon based chips which would allow for faster, smaller, and more
+                     efficient transistors. The invention of quantum computers (which are hotly debated if they will ever
+                     become reality) would also allow Moore's Law to continue on.</p>
+                  <h3>
+                     What about quantum computers?
+                  </h3>
+                  <p>We plan to soon release an update that will show you how long your passphrase would last if
+                     attacked by a quantum computer (that do not yet exist)</p>
+                  <h3>How do I remember my passphrase?</h3>
+                  <p>It is recommended to start out by writing your passphrase on a piece of paper in case you forget. 
+                     Constantly typing it will help you remember simply through spaced repition. You can also try
+                     memorization methods such as the method of loci, creating a mnemonic with the first letter of each word in your passphrase, or a sentence/story you tell yourself that contains your passphrase.</p>
+                  
+               </div>
+            </div>
+         </div>
+      </section>
+{% endblock %}
