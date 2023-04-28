@@ -14,10 +14,11 @@
       <style type="text/css">
          .hide_me{display: none;}
       </style>
-<script src="{{url_for('static', filename='/js/custom.js')}}"></script>
-
+      
    </head>
    <body class="body">
     {% block content %} {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='js/custom.js')}}"></script>
    </body>
 </html>

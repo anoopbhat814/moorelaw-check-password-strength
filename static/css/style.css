@@ -36,6 +36,9 @@ body.body {
     border: 1px solid #e47a4b;
     background-color: #e47a4b;
 }
+.fancy-forms .nav-link {
+    padding: 0.5rem 1.2rem;
+}
 .fade:not(.show) {
     opacity:1;
 }
@@ -137,7 +140,7 @@ p.resulte {
     padding: 5px 10px;
 }
 p.resulte {
-    font-size: 24px !important;
+    font-size: 28px !important;
 }
 .input_field {
     padding: 5px 12px;
@@ -185,7 +188,31 @@ a.support-link {
     padding: 16px 22px 2px;
     font-size: 18px;
 }
+.support-forms p span {
+    font-family: ui-sans-serif;
+    font-size: 20px;
+}
+.support-forms p span {
+    font-family: ui-sans-serif;
+    font-size: 20px;
+}
+.support-forms a.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 6px 22px 6px 10px;
+    color: #fff;
+    text-transform: capitalize;
+    border-radius: 2px;
+    background-color: #e47a4b;
+}
+.support-forms {
+    padding-bottom: 40px;
+}
 @media only screen and (max-width: 767px) {
+    .support-forms a.btn-back {
+        margin-top: 0px;
+        margin-bottom: 24px;
+    }
     .support-forms h3 {
         font-size: 24px;
         padding-top: 17px;

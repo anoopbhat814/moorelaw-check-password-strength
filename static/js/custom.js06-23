@@ -1,0 +1,335 @@
+
+function showMorreLaw(event){
+             let guess =event.target.value;
+             
+             switch (guess) {
+                 case "1_trillion":
+                 document.getElementById("has_moore").classList.remove("hide_me");
+                 document.getElementById("has_moore_right_tab").classList.remove("hide_me");
+                 break;
+                 case "12.5":
+                 document.getElementById("has_moore").classList.remove("hide_me");
+                 document.getElementById("has_moore_right_tab").classList.remove("hide_me");
+                 break;
+                 case "26_million":
+                 document.getElementById("has_moore").classList.remove("hide_me");
+                 document.getElementById("has_moore_right_tab").classList.remove("hide_me");
+                 break;    
+                 default:
+                 document.getElementById("has_moore").classList.add("hide_me");    
+                 document.getElementById("has_moore_right_tab").classList.add("hide_me");
+             }
+         }
+        function showInterval(event){
+                let moore_law = event.target.value;
+                console.log(event.target.value);
+                if(moore_law=="yes"){
+                        document.getElementsByClassName("speed_increase")[0].style.display="block";
+                        document.getElementsByClassName("speed_increase")[1].style.display="block";
+                }else{
+                        document.getElementsByClassName("speed_increase")[0].style.display="none";
+                        document.getElementsByClassName("speed_increase")[1].style.display="none";
+                }
+               // document.getElementById("speed_increase").
+        }         
+         document.addEventListener("DOMContentLoaded", function(event) {         
+             document.querySelectorAll("input[name='attacker_guess']").forEach((input) => {
+                     input.addEventListener('change', showMorreLaw);
+             });
+              document.querySelectorAll("input[name='Moores_Law']").forEach((input) => {
+                     input.addEventListener('change', showInterval);
+             });
+         
+}); 
+
+
+function findanswerchracters(e){
+//make ajax request to function which will check if 3 boxes selected then get result
+lower_case = $("#lower_case").val();
+upper_case = $("#upper_case").val();
+numbers = $("#numbers").val();
+// special_character = $("#special_character").val();
+
+if($('#lower_case').is(':checked') && $('#upper_case').is(':checked') && $('#numbers').is(':checked'))
+{
+        let data ={'e':e,'lower_case':lower_case,'upper_case':upper_case,'numbers':numbers}
+        $.ajax({
+        type : 'POST',
+        url : "/loweruppernumbers",
+        data : data,
+        success: function(result){
+        //entropy = result.entropy;
+         console.log(result.check_box)
+        $("#left_tab").find(".required_character").html(result.check_box); 
+
+        }
+
+        });   
+}
+
+}
+
+$(document).ready(function(){
+        let how_many_words,speed_increase,attacker_guess,entropy,y;
+let money;
+        //first field 
+        $("#left_tab .how_many_words").keyup(function(){
+                how_many_words = $(this).val();
+                
+               
+                let data ={'how_many_words':how_many_words
+                          };
+                console.log(how_many_words);
+                $.ajax({
+                type : 'POST',
+                url : "/compute",
+                data : data,
+                success: function(result){
+                        entropy = result.entropy;
+                        console.log(result.entropy)
+
+                        findanswerchracters(result.entropy);
+                        $("#left_tab").find("span.entropy").html(result.entropy);
+                        $("#left_tab").find(".check_box_value").html(result.entropy);  
+
+                }
+
+                });
+
+        })
+
+        //if speed_increase //third field
+        $("#left_tab [name='speed_increase']").change(function(){                
+                 speed_increase = $(this).val();
+        });
+        
+        //attacker guess
+        $("#left_tab [name='attacker_guess']").change(function(){  
+                          
+                 attacker_guess = $(this).val();
+
+                 
+                 if(attacker_guess=="custom"){
+                        attacker_guess = $("#left_tab .attacker_guess_text").val();
+                 }
+                 if(attacker_guess=="1_trillion")
+                 {
+                       money =    Math.pow(10, 12);
+                 }
+
+                 if(attacker_guess=="12.5")
+                 {
+                       money =    12500000;
+
+                 }
+
+                 if(attacker_guess=="26_million")
+                 {
+                       money =    26000000;
+                 }
+
+                 if(attacker_guess=="300_quintillion")
+                 {
+                       money =    300000000000000000000;
+                 }
+
+                if(attacker_guess=="1_quintillion")
+                 {
+                       money =   1110000000000000000;// Math.pow(1.11, 18);
+                 }
+               console.log(money); 
+                 let data ={'money':money,
+                           'entropy':entropy,
+                           'speed_increase':speed_increase
+                   }
+                $.ajax({
+                type : 'POST',
+                url : "/test",
+                data : data,
+                success: function(result){
+                        y = result.y;
+                        // alert(y);
+                        console.log(result.strength)
+                        $("#left_tab").find(".result_passphrase .years_result").html(result.y); 
+
+                }
+
+                });
+        });
+        $("#left_tab .attacker_guess_custom_radio").change(function(){
+
+                custom = $(".attacker_guess_text").val();
+
+                select = $(".select_sym").val();
+
+                if(select=="Million")
+                {
+                        money=  custom*1000000;
+                        //console.log(money);
+
+                       
+                }
+
+                if(select=="Trillion")
+                {
+                       money=  custom*1000000000000;
+                       //console.log(money);
+                      
+                }
+
+                if(select=="Billion")
+                {
+                       money=  custom*1000000000;
+                      // console.log(money);
+                      
+                }
+             
+                console.log(money); 
+                let data ={'money':money,
+                'entropy':entropy,
+                'speed_increase':speed_increase
+                   }
+                $.ajax({
+                type : 'POST',
+                url : "/test",
+                data : data,
+                success: function(result){
+                        //entropy = result.entropy;
+                        console.log(result.strength)
+
+                        $("#left_tab").find(".result_passphrase .years_result").html(result.y); 
+
+                }
+
+                });      
+        })
+
+
+        $(".select_sym").change(function(){
+                  
+                  custom = $(".attacker_guess_text").val();
+                  select = $(".select_sym").val();
+                if(select=="Million")
+                {
+                       money=  custom*1000000;
+                       //console.log(money);
+                }
+
+                if(select=="Trillion")
+                {
+                       money=  custom*1000000000000;
+                       //console.log(money);
+                       
+                }
+
+                if(select=="Billion")
+                {
+                      money=  custom*1000000000;
+                      //console.log(money);
+                       
+                }
+                //alert(entropty);
+                console.log(money);
+
+                let data ={'money':money,
+                           'entropy':entropy,
+                           'speed_increase':speed_increase
+                   }
+                $.ajax({
+                type : 'POST',
+                url : "/test",
+                data : data,
+                success: function(result){
+                        //entropy = result.entropy;
+                        console.log(result.strength)
+
+                        $("#left_tab").find(".result_passphrase .years_result").html(result.y); 
+
+                }
+
+                });
+    
+               
+        })
+
+        $(".attacker_guess_text").keyup(function(){
+               custom = $(this).val();
+
+               select = $(".select_sym").val();
+
+                if(select=="Trillion")
+                {
+                       money=  custom*1000000000000;
+                      //console.log(money);
+                }
+
+
+                if(select=="Billion")
+                {
+                      money=  custom*1000000000;
+                      //console.log(money);
+                }
+
+                if(select=="Million")
+                {
+                       money=  custom*1000000;
+                     // console.log(money);
+                }
+                //alert(money);
+             console.log(money);       
+               
+        }) 
+ $('#password_char').find('input[type=checkbox]').change(function(){
+                
+                if(entropy==undefined)
+                {
+                        alert("Please Enter Entropy");
+                }
+        
+        
+
+     let check_value =[];
+                $('#password_char input[type=checkbox]').each(function() {
+                        console.log($(this).attr("id"));
+                        if($(this).is(':checked')){
+                                check_value.push($(this).val());
+
+                        }else{
+                                const index = check_value.indexOf($(this).val());
+                                if (index > -1) { // only splice array when item is found
+                                check_value.splice(index, 1); // 2nd parameter means remove one item only
+                                }
+
+
+                        }
+
+                })
+                console.log(check_value);
+                if(check_value.length<=0)
+                {
+                        alert("please select atlease one checkbox");
+                }
+               
+                        let data ={'check_value':check_value.join(","),'entropy':entropy}
+
+                        $.ajax({
+                        type : 'POST',
+                        url : "/unique",
+                        data : data,
+                        success: function(result){
+                        console.log(result.boxes_value); 
+                       // alert(result.boxes_value);                         
+                        $("#left_tab").find(".required_character").html(result.boxes_value); 
+
+                        }
+
+                        });
+
+
+ });
+
+   
+
+})
+
+         

@@ -1,0 +1,90 @@
+(g * 3.1536 * 10**7) * (1 - r ** y+1) = 2 ** e-1
+
+
+
+g =300000000000000000000
+e= 51.7
+r= 1.41421356
+
+
+
+
+2 ** e-1 =( (300000000000000000000 * 3.1536) * (10**7) ) * (1 - (r)**y+1) / (1-r)
+
+2 ** 50.7 = ( ( (300000000000000000000 * 3.1536) * (10**7) ) * (1 - (1.41421356237)**y+1) ) / (1-1.41421356237)
+
+
+
+2 ^ 50.7 = ( ( (300000000000000000000 * 3.1536) * (10^7) ) * (1 - (1.41421356)^y+1) ) / (1-1.41421356)
+
+
+
+
+====================
+
+e = log2(7776)^p
+a= 51.7
+r= 1.41421356
+g =300000000000000000000
+
+LEFT TAB
+
+eq1= (1-r)
+eq2 = (2) ^ (a-1)
+eq3 = (31536000*g)/(1-r)
+eq4= 31536000*g
+eq5 = math.log10(r)
+eq6 = (eq1*(eq2-eq3))/eq4
+eq7 = math.log10(-eq6)
+y = eq7/eq5
+
+=======================
+right tab
+y is typed by customers
+
+
+eq1 = (31536000*g)
+eq2 = ( (r**y) -1 )
+eq3 = r-1
+eq4 = math.log10(2)
+
+eq5 = (eq1*eq2)/eq3
+
+eq6= math.log10(eq5)
+
+eq7 = eq6/eq4
+
+e =1 + (eq7/eq4)  #entropy
+
+
+=============================
+p = how many words
+
+p = ( math.log10(2**e) )/( math.log10(7776) )
+
+
+============================
+
+equation where no is picked   left tab
+
+      how long a passphase of p length last
+       e = math.log10(7776**p)
+      y = ( (2**e-1) ) / ( (g*3.1536) * (10**7) )  #left tab
+
+
+  #right tab compute entropy no moore law
+
+
+  eq1= math.log10(31536000*g*a)   ==  a =y
+  eq2= math.log10(2)
+  eq3= 1+( eq1/eq2 )  #e a=y yaers
+
+  p = ( math.log10(2**e) )/( math.log10(7776) )
+
+
+
+
+  #lower case , uppercase and numers  62 a=e
+
+  x = ( math.log10(2**a) )/(math.log10(62))    #how many chracters 
+

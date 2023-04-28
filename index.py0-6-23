@@ -1,0 +1,144 @@
+from flask import Flask, render_template
+from flask import jsonify
+import json
+from flask import request
+import math
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+   
+   return render_template("home.html")
+
+@app.route('/support', methods=('GET', 'POST'))
+def support():
+   return render_template("support.html")
+
+@app.route('/compute', methods=('GET', 'POST'))
+def compute():
+   p = request.form['how_many_words']
+
+   #caclulating log
+   power = 7776 ** int(p)
+   entropy = math.log2(power)
+   entropy = round(entropy, 2)
+
+   return jsonify({'entropy':entropy})
+
+
+
+# @app.route('/test', methods=('GET', 'POST'))
+# def test():
+#    money = request.form['money']
+#    entropy = request.form['entropy']
+#    entropy_minus = float(entropy)-1
+#    power_of_e = pow(2, entropy_minus)
+#    power_of_seven = pow(10,7)
+#    strength = float((power_of_e))//(float(money)*3.1536*float(power_of_seven))
+
+#    return jsonify({'strength':strength})
+
+@app.route('/test', methods=('GET', 'POST'))
+def test():
+   money = request.form['money']
+   entropy = request.form['entropy']
+   speed_increase = request.form['speed_increase']
+   entropy_minus = float(entropy)-1
+   #entropy_minus_eight = float(entropy)-8
+   power_of_eight = float(pow(2,entropy_minus))
+ 
+
+   lg = float(pow(2,entropy_minus));
+#
+   top_sam =(1-float(speed_increase))*(power_of_eight-31536000*float(money))
+   top_sam_dividtion = top_sam/31536000*float(money)
+   find_log = math.log10(top_sam_dividtion)
+   y = find_log/math.log10(float(speed_increase))
+
+   power_often = pow(10,7)
+   power_ofy = pow(float(speed_increase),y)
+
+   years = (float(money)*3.1536*float(power_often))*(1-float(power_ofy))
+   strength =round( float(years)/1-float(speed_increase),2)  
+
+   return jsonify({'strength':strength,'y':y})
+
+#################################################
+
+# @app.route('/checkbox', methods=('GET', 'POST'))
+# def checkbox():
+#    y = request.form['y']
+#    entropy = request.form['entropy']
+#    check_box = float(entropy)/math.log2(95)
+#    return jsonify({'check_box':check_box})
+
+#******************************************************
+@app.route('/loweruppernumbers', methods=('GET', 'POST'))
+def loweruppernumbers():
+   e = request.form['e']
+   lower_case = request.form['lower_case']
+   upper_case = request.form['upper_case']
+   numbers = request.form['numbers']
+   #special_character = request.form['special_character']
+   if(lower_case=="1" and  upper_case=="2" and numbers=="3"):
+    check_box = float(e)/math.log2(62)
+   return jsonify({'check_box':check_box})
+
+
+   
+#******************************************unique ***********************************
+
+@app.route('/unique', methods=('GET', 'POST'))
+def unique():
+   #print("******")
+   #print(request.form["check_value"])
+   e = request.form['entropy']
+
+   selected_check = request.form["check_value"]
+   selected_check = selected_check.split(",")
+   #print(selected_check)
+   #1, lower case, 2 uppercae ,3 number ,4 special charcter
+   boxes_value =False
+   if ('1' in selected_check) or ('2' in selected_check):
+      boxes_value = float(e)/math.log2(26)
+
+   if ('3' in selected_check):
+       boxes_value = float(e)/math.log2(10)
+
+  
+
+   if ('4' in selected_check):
+       boxes_value = float(e)/math.log2(33)
+
+   if ('1' in selected_check) and ('2' in selected_check):  #lower and uppper
+       boxes_value = float(e)/math.log2(52)
+
+   if ('1' in selected_check) or ('2' in selected_check) and ('3' in selected_check):  #lowercase or upppercase and numbers
+       boxes_value = float(e)/math.log2(36)
+
+   if ('1' in selected_check) or ('2' in selected_check) and ('4' in selected_check):  #lowercase or upppercase and special character
+       boxes_value = float(e)/math.log2(59)
+   
+   if ('3' in selected_check) and ('4' in selected_check):  #numbers and special character
+       boxes_value = float(e)/math.log2(43)
+
+   if ('1' in selected_check) and ('2' in selected_check) and ('4' in selected_check):  #lowercase and and uppercase and special character
+       boxes_value = float(e)/math.log2(85)
+
+   if ('1' in selected_check) or ('2' in selected_check) and ('3' in selected_check) and ('4' in selected_check):  #lowercase and or uppercase and and numbers special character
+       boxes_value = float(e)/math.log2(69)
+
+   if ('1' in selected_check) and ('2' in selected_check) and ('3' in selected_check) and ('4' in selected_check):
+       boxes_value = float(e)/math.log2(95)
+
+
+   return jsonify({'boxes_value':boxes_value})
+if __name__ == '__main__':
+   app.run(debug=True)     
+
+
+
+
+
+

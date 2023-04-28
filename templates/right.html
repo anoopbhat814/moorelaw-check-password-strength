@@ -1,0 +1,131 @@
+ <div class="tab-pane fade right_tab" id="right_tab_content" role="tabpanel" aria-labelledby="right_tab">
+                        <div class="fancyformcontainer">
+                           <form class="form-style">
+                              <div class="form-group mt-4">
+                                 <p>How many years do you want your passphrase to last?</p>
+                                 <div class="text_row">
+                                    <div class="row-col">
+                                       <input type="text" placeholder="Enter number here" class="forced years how_many_years">
+                                    </div>
+                                 </div>
+                              </div>
+                                 <div class="form-group mt-4">
+                                 <p>Is Moore's Law in affect during the attack?</p>
+                                 <div class="raido-row">
+                                    <div class="row-col">
+                                       <input type="radio" id="moores_law_left" name="Moores_Law" value="yes" class="forced Moore moores_law" checked>
+                                       <label>Yes</label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="moores_law_left" name="Moores_Law" value="no" class="forced Moore moores_law">
+                                       <label>No</label>
+                                    </div>
+                                    <span class="small-text">(Moore's Law states that a computer's processing speed doubles every two years)</span>
+                                 </div>
+                              </div>
+                              <div class="form-group mt-4 speed_increase" id="speed_increase">
+                                 <p>At what intervals does the attackers' speeds increase?</p>
+                                 <div class="raido-row">
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="speed_increase"  class="forced computer" value="2" checked >
+                                       <label>Doubles every two years</label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="speed_increase" value="1.4142135623730951" class="forced computer">
+                                       <label>Increases ~41% every year (equal to doubling at the two year mark)</label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="speed_increase" value="1.189207115002721" class="forced computer">
+                                       <label> Increases ~19% every six months (equal to doubling at the two year mark) </label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group mt-4">
+                                 <p>How many guesses per second can the attacker guess?</p>
+                                 <div class="raido-row more_space">
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="attacker_guess" value="1_trillion" class="forced guesses" checked>
+                                       <label>1 trillion (Edward Snowden in 2013 estimated highly motivated attackers have this speed)</label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="attacker_guess"  class="forced guesses" value="12.5">
+                                       <label> 12.5 (Cryptographer Matthew Green in 2018 estimated iPhone attackers using GrayKey have this speed) </label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="attacker_guess" value="26_million" class="forced guesses">
+                                       <label> 26 million (The Manhattan District Attorney in 2020 claimed to have this speed when attacking iPhones&mdash;take it with a big grain of salt) </label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="attacker_guess" value="300_quintillion" class="forced guesses">
+                                       <label>300 quintillion (300 million trillion&mdash;strength of the entire bitcoin network) </label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="attacker_guess" value="1_quintillion" class="forced guesses">
+                                       <label>1.11 quintillion (1.11 million trillion&mdash;strength of the world's fastest supercomputer) </label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="attacker_guess" value="custom" class="forced guesses" >
+                                       <label>Custom</label>  <input type="text" placeholder="Enter a number" class="forced input_field">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group mt-4" id="has_moore_right_tab">
+                                 <p>Has Moore's Law been in affect since that estimate was made?</p>
+                                 <div class="raido-row">
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="affect" value="yes" class="forced estimates" checked>
+                                       <label>Yes</label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="radio" id="" name="affect" value="no" class="forced estimates">
+                                       <label>No</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="text-left">
+                                 <button type="submit" class="btn formsubmitbtn">Submit</button>
+                              </div>
+                              <div class="form-group mt-4 result_passphrase" style="margin-top: 43px !important;">
+                                 <p class="resulte"><b>Result:</b> <span style="font-size:23px;">Your passphrase will last for (answer) years.</span></p>
+                              </div>
+                               <div class="result_left_tab">
+                          
+                            <div class="form-group mt-4 passphrase_entropy">
+                               <p class="resulte"><b>Your passphrase entropy:</b> <span style="font-size:23px;" class="entropy">(answer)</span> bits </p>
+                           </div>
+                               <div class="form-group mt-4 result_password" style="margin-top: 43px !important;">
+                                 <p><b></b> A password with the equivalent strength of <span class="check_box_value">(answer)</span> bits, would require <span class="required_character">(answer) </span> characters. </p>
+                              </div>          
+
+                           </div>
+
+                             
+                          
+                             <div class="form-group mt-4 passwrd_char" id="password_char">
+                                 <p>Which characters would your password have?</p>
+                                 <div class="raido-row">
+                                    <div class="row-col">
+                                       <input type="checkbox" id="lower_case" name="new" value="1" class="forced characters lower_case" checked >
+                                       <label>lower case letters</label>
+                                    </div>
+                                  
+                                    <div class="row-col">
+                                       <input type="checkbox" id="upper_case" name="characters" value="2" class="forced characters upper_case" checked >
+                                       <label>upper case letters</label>
+                                    </div>
+                                      <div class="row-col">
+                                       <input type="checkbox" id="numbers" name="characters" value="3" class="forced characters numbers" checked>
+                                       <label>numbers</label>
+                                    </div>
+                                    <div class="row-col">
+                                       <input type="checkbox" id="special_character" name="characters" value="4" class="forced characters special_character">
+                                       <label>special characters</label>
+                                    </div>
+                                 </div>
+                                 <div class="form-group mt-4 result_password" style="margin-top: 43px !important;">
+                                    <p><b></b> A password with the equivalent strength of <span class="check_box_value">(answer)</span> bits, would require <span class="required_character1">(answer) </span> characters. </p>
+                                 </div> 
+                              </div>
+                           </form>
+                        </div>
+                     </div>
